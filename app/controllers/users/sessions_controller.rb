@@ -6,8 +6,6 @@ class Users::SessionsController < Devise::SessionsController
   # GET /resource/sign_in
   def new
     super
-    # byebug
-
   end
 
   # POST /resource/sign_in
@@ -21,7 +19,7 @@ class Users::SessionsController < Devise::SessionsController
   end
 
   def after_sign_in_path_for(resource)
-    profile_path
+    users_profile_path
   end
 
   protected

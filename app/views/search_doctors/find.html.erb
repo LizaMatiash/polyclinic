@@ -3,6 +3,6 @@
 <% @doctors.each do |doctor| %>
   <p>Doctor id <%= doctor.id %></p>
   <p>Doctor phone <%= doctor.phone %></p>
-  <p><%= link_to 'Choose this doctor' %></p>
+  <p><%= button_to 'Choose this doctor', users_appointments_path(doctor: doctor), method: :post, data: { turbo: false } %></p>
   <br>
 <% end %>

@@ -1,0 +1,13 @@
+<h1>Your appointments</h1>
+
+<% @appointments.each do |appointment| %>
+  <p>Doctor id <%= appointment.doctor.id %></p>
+  <p> Status
+    <% if appointment.status%>
+       active
+    <% else %>
+      closed
+    <% end %> </p>
+  <p> <%= appointment.recomendation %> </p>
+  <br>
+<% end %>

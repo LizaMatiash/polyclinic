@@ -1,0 +1,8 @@
+<h1>Doctors</h1>
+
+<% @doctors.each do |doctor| %>
+  <p>Doctor id <%= doctor.id %></p>
+  <p>Doctor phone <%= doctor.phone %></p>
+  <p><%= link_to 'Choose this doctor' %></p>
+  <br>
+<% end %>

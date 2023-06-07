@@ -14,5 +14,13 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
+
+    <% if current_user.present? %>
+      <li><%= button_to 'User log out', destroy_user_session_path, method: :delete, data: { turbo: false }  %></li>
+    <% end %>
+
+    <% if current_doctor.present? %>
+      <li><%=  button_to 'Doctor log out', destroy_doctor_session_path, method: :delete, data: { turbo: false }  %></li>
+    <% end %>
   </body>
 </html>

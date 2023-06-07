@@ -3,12 +3,12 @@ module Users
     before_action :authenticate_user!
 
     def show
-      @appointments = DoctorsUser.where(user: current_user)
+      @appointments = Appointment.where(user: current_user)
     end
 
     def create
       @doctor = Doctor.find(params[:doctor])
-      @appointment = @doctor.doctors_users.new()
+      @appointment = @doctor.appointments.new()
       @appointment.user = current_user
 
       if @appointment.save

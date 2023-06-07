@@ -1,0 +1,24 @@
+<h1>Your appointments</h1>
+
+<% @appointments.each do |appointment| %>
+  <p>User id <%= appointment.user.id %></p>
+  <p>User phone <%= appointment.user.phone %></p>
+  <p> Status
+    <% if appointment.status%>
+       active
+
+       <%= form_for appointment, url: doctors_appointment_path(appointment) do |form| %>
+         <%= form.label :recomendation %><br>
+         <%= form.text_field :recomendation %>
+
+         <%= form.submit 'Confirm'%>
+       <% end %>
+
+    <% else %>
+      closed
+
+      <p> <%= appointment.recomendation %> </p>
+    <% end %> </p>
+
+  <br>
+<% end %>

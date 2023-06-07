@@ -6,8 +6,8 @@ class User < ApplicationRecord
 
   validates :phone, uniqueness: true
 
-  has_many :doctors_users, dependent: :destroy
-  has_many :doctors, through: :doctors_users
+  has_many :appointments, dependent: :destroy
+  has_many :doctors, through: :appointments
 
   def email_required?
     false

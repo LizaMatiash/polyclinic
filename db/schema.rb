@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_07_131129) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_07_172511) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -32,9 +32,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_07_131129) do
     t.index ["reset_password_token"], name: "index_doctors_on_reset_password_token", unique: true
   end
 
-  create_table "doctros_users", force: :cascade do |t|
+  create_table "doctors_users", force: :cascade do |t|
     t.integer "doctor_id"
     t.integer "user_id"
+    t.text "recomendation"
+    t.boolean "status", default: true
   end
 
   create_table "users", force: :cascade do |t|

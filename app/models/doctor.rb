@@ -1,15 +1,16 @@
 class Doctor < ApplicationRecord
+  VALIDATION = /^[0-9]{10}$/
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :phone, uniqueness: true
+  validate :phone, :format, VALIDATION
 
   belongs_to :category, optional: true
 
-  has_many :doctros_users, dependent: :destroy
-  has_many :users, through: :doctros_users
+  has_many :doctors_users, dependent: :destroy
+  has_many :users, through: :doctors_users
 
   def email_required?
     false

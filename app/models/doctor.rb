@@ -8,6 +8,9 @@ class Doctor < ApplicationRecord
 
   belongs_to :category, optional: true
 
+  has_many :doctros_users, dependent: :destroy
+  has_many :users, through: :doctros_users
+
   def email_required?
     false
   end

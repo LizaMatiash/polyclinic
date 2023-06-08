@@ -28,5 +28,5 @@ Rails.application.routes.draw do
     post '/', to: 'search_doctors#find'
   end
 
-  root to: "home#index"
+  root to: 'home#index'
 end

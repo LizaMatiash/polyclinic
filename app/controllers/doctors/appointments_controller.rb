@@ -19,7 +19,6 @@ module Doctors
       end
     end
 
-
     private
 
     def appointment_params

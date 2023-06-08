@@ -1,0 +1,16 @@
+<h1>All DOCTORS</h1>
+
+<% @doctors.each do |doctor| %>
+  <b><p>Doctor id <%= doctor.id %></p></b>
+  <p>Doctor phone <%= doctor.phone %></p>
+  <p>Doctor category: <%= doctor.category.name if doctor.category.present? %></p>
+  <br>
+
+  <%= form_tag admin_doctor_path(doctor), method: :put, data: { turbo: false } do %>
+    <p>Change doctors category</p>
+    <%= select_tag :category_id, options_from_collection_for_select(@categories, :id, :name) %>
+    <p><%= submit_tag "Update" %></p>
+  <% end %>
+
+  <br>
+<% end %>

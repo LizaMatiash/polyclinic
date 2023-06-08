@@ -19,7 +19,7 @@ class Doctors::SessionsController < Devise::SessionsController
   end
 
   def after_sign_in_path_for(resource)
-    doctors_profile_path
+    current_doctor.admin? ? admin_profile_path : doctors_profile_path
   end
 
   protected

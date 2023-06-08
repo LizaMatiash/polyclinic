@@ -1,4 +1,4 @@
-module Doctors
+module Admin
   class ProfilesController < ApplicationController
     before_action :authenticate_doctor!
 

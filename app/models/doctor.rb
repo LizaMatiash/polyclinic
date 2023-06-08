@@ -1,11 +1,11 @@
 class Doctor < ApplicationRecord
-  VALIDATION = /^[0-9]{10}$/
+  # VALIDATION = /^[0-9]{10}$/
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable,
          :recoverable, :rememberable, :validatable
 
-  validate :phone, :format, VALIDATION
+  validates_format_of :phone, with: /\A^[0-9]{10}\z/, on: :create
 
   belongs_to :category, optional: true
 

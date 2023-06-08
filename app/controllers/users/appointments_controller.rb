@@ -2,6 +2,8 @@ module Users
   class AppointmentsController < ApplicationController
     before_action :authenticate_user!
 
+    authorize_resource
+
     def show
       @appointments = Appointment.where(user: current_user)
     end

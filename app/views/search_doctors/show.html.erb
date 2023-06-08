@@ -1,8 +1,8 @@
 <h1>All doctors categories</h1>
 
 <%= form_tag search_doctor_path, data: { turbo: false } do %>
-      <p>Choose category</p>
-      <%= select_tag :category, options_from_collection_for_select(@categories, :id, :name) %>
-      <p><br></p>
-      <p><%= submit_tag "Search" %></p>
+  <p>Choose category</p>
+  <%= select_tag :category, options_from_collection_for_select(@categories, :id, :name) %>
+  <p><br></p>
+  <p><%= submit_tag "Search" %></p>
 <% end %>

@@ -1,0 +1,20 @@
+<h1>New Doctor</h1>
+
+<%= form_with url: admin_doctors_path, method: :post do |f| %>
+  <%= f.label :phone %><br />
+  <%= f.text_field :phone, autofocus: true %><br />
+
+  <%= f.label :password %><br />
+  <%= f.password_field :password, autocomplete: "current-password" %><br />
+
+  <%= f.label :category %><br />
+  <%= f.collection_select :category_id, Category.all, :id, :name %><br />
+
+  <%= f.label 'Admin?' %><br />
+  <%= f.select :admin, [false, true] %><br />
+
+  <br />
+
+
+  <%= f.submit %>
+<% end %>

@@ -3,6 +3,7 @@ module Users
     before_action :authenticate_user!
 
     def show
+      authorize! :read, :show
     end
   end
 end

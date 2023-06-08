@@ -4,20 +4,20 @@ module Users
 
     authorize_resource
 
-    def show
+    def index
       @appointments = Appointment.where(user: current_user)
     end
 
     def create
-      @doctor = Doctor.find(params[:doctor])
-      @appointment = @doctor.appointments.new()
-      @appointment.user = current_user
+      if params[:doctor].present?
+        @doctor = Doctor.find(params[:doctor])
+        @appointment = @doctor.appointments.new
+        @appointment.user = current_user
 
-      if @appointment.save
-        redirect_to users_appointment_path(@appointment), notice: 'Appointment was successfully created.'
-      else
-        redirect_to search_doctor_path, notice: 'Troubles with appointment'
+        redirect_to users_appointments_path, notice: 'Appointment was successfully created.' if @appointment.save
       end
+
+      redirect_to search_doctor_path, notice: 'Troubles with appointment' if @appointment.nil?
     end
 
     private

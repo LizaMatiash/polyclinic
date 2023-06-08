@@ -7,14 +7,13 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
 
-  # resources :appointments, only: [:show]
   namespace :users do
-    resources :appointments, only: %i[show create]
+    resources :appointments, only: %i[create index]
     resource :profile, only: %i[show]
   end
 
   namespace :doctors do
-    resources :appointments, only: %i[index edit create update]
+    resources :appointments, only: %i[index update]
     resource :profile, only: %i[show]
   end
 

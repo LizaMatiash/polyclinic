@@ -10,6 +10,7 @@ module Doctors
 
     def update
       @appointment = Appointment.find(params[:id])
+      # authorize! :edit, @appointment
       @appointment.status = false
       if @appointment.update(appointment_params)
         redirect_to doctors_appointments_path, notice: 'Appointment was successfully closed.'
